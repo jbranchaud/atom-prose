@@ -4,11 +4,7 @@ module.exports =
 class ProseView extends View
   @content: ->
     @div class: 'prose tool-panel panel-bottom prose-bar', =>
-      editorView = atom.workspaceView.getActiveView().getEditor()
-      wordCount = editorView.getText().match(/\S+/g).length
-      charCount = editorView.getText().length
-      lineCount = editorView.getText().match(/[\n\r]/g).length
-      @div "Words: #{wordCount}, Characters: #{charCount}, Lines: #{lineCount}", class: "message"
+      @div outlet: 'stats', "say something", class: 'prose-stats'
 
   initialize: ->
     atom.workspaceView.proseBar = this
@@ -16,25 +12,33 @@ class ProseView extends View
 
     @bufferSubscriptions = []
     @subscribe atom.workspaceView, 'pane-container:active-pane-item-changed', =>
+      console.log 'hello'
       @unsubscribeAllFromBuffer()
       @storeActiveBuffer()
       @subscribeAllToBuffer()
+      @setStats()
 
       @trigger('active-buffer-changed')
 
     @storeActiveBuffer()
+    @setStats()
 
   # Private:
   attach: ->
     atom.workspaceView.appendToBottom(this) unless @hasParent()
 
   # Public:
-  appendLeft: (item) ->
-    @leftPanel.append(item)
-
-  # Public:
-  appendRight: (item) ->
-    @rightPanel.append(item)
+  setStats: ->
+    console.log 'here we are'
+    #if atom.workspaceView.is '.prose'
+    if @getActiveBuffer()?
+      console.log 'and again'
+      wordCount = @getActiveBuffer().getText().match(/\S+/g).length
+      charCount = @getActiveBuffer().getText().length
+      lineCount = @getActiveBuffer().getText().match(/[\n\r]/g).length
+      statsString = "Words: #{wordCount}, Characters: #{charCount}, Lines: #{lineCount}"
+      console.log statsString
+      this.find('.prose-stats').text(statsString)
 
   # Public:
   getActiveBuffer: ->
