@@ -1,0 +1,15 @@
+{
+  "name": "Prose",
+  "main": "./lib/prose",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Zen mode for writing, word count at the bottom.",
+  "activationEvents": ["prose:toggle"],
+  "repository": "https://github.com/jbranchaud/prose",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
