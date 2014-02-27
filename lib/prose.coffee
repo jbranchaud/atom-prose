@@ -5,7 +5,7 @@ module.exports =
 
   activate: (state) ->
     atom.workspaceView.command "prose:toggle", => @toggle()
-    @proseView = new ProseView(state.proseViewState)
+    @proseView = new ProseView()
 
   toggle: ->
     workspace = atom.workspaceView

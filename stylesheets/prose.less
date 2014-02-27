@@ -5,6 +5,7 @@
 @import "ui-variables";
 
 .prose {
+
   .editor {
     width: 700px;
     margin: 0 auto;
@@ -20,6 +21,15 @@
   }
 }
 
-.word-count {
+.prose-bar {
   text-align: center;
+  font-size: 11px;
+  line-height: @component-line-height - 3px;
+  height: @component-line-height + 1px;
+  position: relative;
+  -webkit-user-select: none;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: -webkit-min-content;
 }
