@@ -1,3 +1,5 @@
-# prose package
+# [atom](https://atom.io)-prose
 
-A short description of your package.
+It is zen mode made for writing with a word count at the bottom.
+
+*Note: the implementation is incomplete*
