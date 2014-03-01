@@ -5,7 +5,7 @@
   "private": true,
   "description": "Zen mode for writing, word count at the bottom.",
   "activationEvents": ["prose:toggle"],
-  "repository": "https://github.com/jbranchaud/prose",
+  "repository": "https://github.com/jbranchaud/atom-prose",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
